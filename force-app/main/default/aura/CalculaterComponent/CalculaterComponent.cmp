@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<lightning:input type="Integer" name="input1" label="Enter first numner" />
+    <lightning:input type="Integer" name="input2" label="Enter second numner" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

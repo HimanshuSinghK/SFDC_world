@@ -1,0 +1,21 @@
+<apex:page standardController="Account">
+    <!--{!Account.Name}-->
+    <!--<apex:detail relatedList="false"/>-->
+    	<apex:pageBlock title="Account Details">
+            <apex:pageBlockSection >
+    <apex:outputField value="{!Account.Name}"/><br/>
+    <apex:outputField value="{!Account.phone}"/><br/>
+    <apex:outputField value="{!Account.Industry}"/><br/>
+    <apex:outputField value="{!Account.AnnualRevenue}"/><br/>
+    <apex:outputField value="{!Account.Rating}"/><br/>
+    <apex:outputField value="{!Account.SLAExpirationDate__c}"/><br/>
+                
+                <apex:pageBlockTable value="{!Account.Contacts}" var="contact">
+                	<apex:column value="{!contact.Name}"/>
+                    <apex:column value="{!contact.Title}"/>
+                    <apex:column value="{!contact.Phone}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    <apex:relatedList list="Opportunities"/>
+</apex:page>

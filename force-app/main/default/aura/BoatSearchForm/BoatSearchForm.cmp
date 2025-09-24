@@ -1,0 +1,34 @@
+<aura:component description="BoatSearchForm" 
+                controller="BoatTypeSearch"
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="buttonLabel" type="String" default="Submit"/>
+    <aura:attribute name="newLabel" type="String" default="New Button"/>
+    <aura:attribute name="showNew" type="Boolean" default="false"/>
+    <!--<aura:attribute name="boatTypes" type="BoatType__c[]" />-->
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    
+    <aura:registerEvent name="searchFormSubmit" type="c:FormSubmit"/>
+    
+    <lightning:layout horizontalAlign="center">
+        <lightning:layoutItem padding="around-medium">
+            <lightning:select name="selectItem" aura:id="boatTypeList" label="All Types"
+                              variant="label-hidden" value="">
+                <option value="" text="All Types"/>
+                <aura:iteration items="{!v.boatTypes}" var="boatType">
+                    <option value="{!boatType.Id}" text="{!boatType.Name}"/>
+                </aura:iteration>
+            </lightning:select>                  
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-medium">
+            <lightning:button label="{!v.buttonLabel}" onclick="{!c.onSearchClick}" variant="brand"/>
+            <!--<lightning:button label="Toggle Button" onclick="{!c.toggleButton}" variant="neutral"/>-->
+            <!--display new button on availability-->
+            <aura:if isTrue="{!v.showNew}">
+                <lightning:button label="{!v.newLabel}" variant="neutral" onclick="{!c.createRecord}"/>
+                <!--<aura:set attribute="else">
+                New Button cannot be added
+                </aura:set>-->
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

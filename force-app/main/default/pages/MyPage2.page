@@ -1,0 +1,15 @@
+<apex:page standardController="Contact" lightningStylesheets="true" sidebar="true" showHeader="true">
+    <apex:form >
+    <apex:pageBlock title="Edit Contact">
+        <apex:pageBlockSection columns="1">
+        	<apex:inputfield value="{!Contact.FirstName}"></apex:inputfield>
+        	<apex:inputfield value="{!Contact.LastName}"></apex:inputfield>
+        	<apex:inputfield value="{!Contact.BirthDate}"></apex:inputfield>
+        	<apex:inputfield value="{!Contact.Email}"></apex:inputfield>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

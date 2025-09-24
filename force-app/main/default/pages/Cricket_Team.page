@@ -1,0 +1,35 @@
+<apex:page controller="CustomSettingClass" docType="html-5.0">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockTable value="{!myTeam}" var="tram">
+<apex:column value="{!tram.Id}"/>
+<apex:column value="{!tram.Name}"/>
+<apex:column value="{!tram.Batsman__c}"/>
+<apex:column value="{!tram.Bowler__c }"/>
+<!--<apex:column ><apex:commandButton action="{!UpdateValue}" value="Edit" id="editOption">
+<apex:param name="editOption" value="{!tram.Id}" assignTo="{!Idd}"/>
+</apex:commandButton>
+</apex:column>-->
+
+<apex:column ><apex:commandButton action="{!UpdateValue}" value="Update" reRender="rrr">
+<apex:param name="par" assignTo="{!Idd}" value="{!tram.Id}" />
+</apex:commandButton>
+</apex:column>
+</apex:pageBlockTable>
+
+</apex:pageBlock>
+
+<apex:pageBlock id="rrr" title="write the name of the Batsman and Bowler before clicking the UPDATE Button">
+<apex:pageBlockSection >
+<apex:input value="{!BatsmanName}" label="Batsman"/>
+<apex:input value="{!BowlerName}" label="Bowler"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+<!--<apex:pageBlock >
+<apex:pageBlockButtons location="bottom">
+<apex:commandButton value="update" action="{!UpdateValue}"/>
+</apex:pageBlockButtons>
+
+</apex:pageBlock>-->
+</apex:form>
+</apex:page>
